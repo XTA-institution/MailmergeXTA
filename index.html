@@ -1,1 +1,1727 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
 
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #7fa9b0, #6ec6c6);
+    }
+
+    .container {
+      width: 90%;
+      margin: 30px auto;
+      background: #ffffff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .header {
+      text-align: center;
+      padding: 30px 20px 20px;
+      background: linear-gradient(135deg, #7fa9b0, #6ec6c6);
+    }
+
+    .logo-wrap {
+      width: 100px;
+      height: 100px;
+      margin: auto;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .title {
+      font-size: 40px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .menu {
+      display: flex;
+      background: linear-gradient(90deg, #2f8f8f, #1f6f6f);
+    }
+
+    .menu button {
+      flex: 1;
+      padding: 26px 0;
+      font-size: 17px;
+      border: none;
+      background: transparent;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      border-right: 2px solid rgba(255,255,255,0.3);
+    }
+
+    .menu button.active {
+      background: rgba(0,0,0,0.2);
+    }
+
+    .content {
+      position: relative;
+      min-height: 500px;
+      height: auto;
+      background-size: cover;
+      background-position: center;
+    }
+    .content.template-mode {
+    padding: 0;
+    min-height: 100vh;
+    background: #98c3cb;
+    }
+    .container.template-mode {
+     width: 100%;
+     max-width:100%;
+     margin: 0;
+     border-radius: 0;
+     box-shadow: none;
+    }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.35);
+      pointer-events: none;
+    }
+
+    .bottom-text {
+      position: absolute;
+      bottom: 50px;
+      left: 50px;
+      z-index: 2;
+    }
+    
+
+    /* BUTTON */
+   .btn {
+   padding: 18px 10px;
+   background: linear-gradient(135deg, #2f8f8f, #1f6f6f);
+   color: white;
+   border-radius: 14px;
+   text-align: center;
+   cursor: pointer;
+   font-weight: 700;
+   font-size: 20px;
+   letter-spacing: 0.5px;
+   transition: all 0.25s ease;
+   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+   }
+
+  .btn:hover {
+   transform: translateY(-4px) scale(1.03);
+   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+   }
+
+   .btn:active {
+   transform: scale(0.97);
+   }
+  .back {
+   margin-top: 10px;
+   cursor: pointer;
+   font-weight: bold;
+  }
+   .grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+   gap: 25px;
+   }
+
+  .grid-khoi {
+   display: grid;
+   width: 100%;
+   max-width: 800px;
+   margin: 0 auto;
+
+   grid-template-columns: repeat(6, 1fr);
+   grid-template-rows: repeat(2, auto);
+  gap: 25px;
+  }
+  .div1 {
+   grid-column: 1 / 3;
+   width: 200px;
+  }
+
+  .div2 {
+   grid-column: 3 / 5;
+   width: 200px;
+  }
+  .div3 {
+  grid-column: 5 / 7;
+  width: 200px;
+  }
+  .div4 {
+  grid-column: 2 / 4;
+  width: 200px;
+  grid-row: 2;
+  }
+  .div5 {
+  grid-column: 4 / 6;
+  width: 200px;
+  grid-row: 2;
+  }
+  .btn-small {
+   width: 80%;
+   justify-self: center;
+  }
+
+  /* Căn giữa khe */
+  .col-1-2 {
+  grid-column: 1 / 3;
+  }
+
+   .col-2-3 {
+  grid-column: 2 / 4;
+  }
+   .grid-3 {
+   grid-template-columns: repeat(3, 1fr);
+   }
+   .grid-2 {
+   grid-template-columns: repeat(2, 1fr);
+   }
+   .title-center {
+   text-align: center;
+   width: 100%;
+   margin: 40px 0 25px;
+   font-size: 24px;
+
+   font-family: 'Noto Sans', sans-serif; /* 👈 thêm dòng này */
+   font-weight: 900;                     /* 👈 đậm */
+   font-style: italic;                   /* 👈 nghiêng */
+   color: #2f7777;                       /* 👈 màu */
+
+  position: relative;
+  z-index: 2;
+}
+   .center-box {
+   width: 100%;
+   max-width: 900px;
+   margin: 60px auto;
+   position: relative;
+   z-index: 2;
+  }
+  /* ===== TEMPLATE PAGE ===== */
+.file {
+  background: #f1f3f4;
+  border-radius: 16px;
+  padding: 12px;
+  cursor: pointer;
+  text-align: center;
+  transform: none;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+}
+.header.hide {
+  display: none;
+}
+
+.menu.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+.container-template {
+  width: 100%;
+  margin: 0px ;
+  background: #d0e4e7;
+  border-radius: 0;
+  display: flex;
+  height: calc(100vh - 70px);
+  overflow: hidden;
+}
+.preview-box {
+  width: 100%;
+  height: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #eee;
+  margin-top: 4px;
+}
+
+.preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.menu-template {
+  width: 260px;
+  padding: 20px;
+  border-right: 4px solid black;
+  box-sizing: border-box;
+}
+
+.content-template {
+  flex: 1;
+  padding: 30px 40px;
+  overflow-y: auto;
+  background: #d0e4e7
+}
+.file-name {
+  margin-top: 8px;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#uploadBox {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 250px;
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  display: none;
+}
+
+#progressBar {
+height: 6px;
+background: #4caf50;
+width: 0%;
+}
+/* dùng lại style cũ */
+.menu-title {
+  text-align: center;
+  color: #2f7777;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 25px;
+  font-style: italic;
+}
+#uploadText {
+  font-size: 14px;
+  white-space: normal;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.search-btn, .menu-template button {
+  width: 100%;
+  margin: 20px 0;
+  padding: 12px;
+
+  background: #2f6f6f;
+  color: white;
+
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: bold;
+  
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  transition: all 0.25s ease;
+}
+.menu-template button:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  background: #3a8f8f;
+}
+.search-input {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 10px 0 20px;
+
+  border: none;
+  outline: none;
+
+  border-radius: 10px;
+  background: #f5f5f5;
+
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+
+  box-sizing: border-box;
+
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+  display: none;
+}
+.mailings-bar {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background: #eee;
+  border-radius: 10px;
+}
+
+#fieldDropdown {
+  position: fixed;
+  top: 120px;
+  left: 300px;
+
+  width: 220px;
+  max-height: 300px;
+  overflow-y: auto;
+
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+  display: none;
+  z-index: 9999;
+}
+
+#fieldDropdown div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+#fieldDropdown div:hover {
+  background: #f0f0f0;
+}
+
+#sheetList div {
+  padding: 10px 12px;
+  line-height: 1.5;
+  font-size: 15px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+#sheetList div:hover {
+  background:#f0f0f0;
+}
+.file {
+  position: relative;
+}
+
+.file-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
+.file-name {
+  font-size: 14px;
+  font-weight: 600;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-menu {
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 6px;
+  
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.file-menu:hover {
+  background: #eee;
+}
+
+.dropdown {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: none;
+  right: 10px;
+  top: 40px;
+  z-index: 100;
+}
+
+.dropdown div {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.dropdown div:hover {
+  background: #f0f0f0;
+}
+.file.selected {
+  background: #d2e3fc; 
+  border: 1px solid #1a73e8;
+}
+
+.file {
+  transition: none;
+}
+.file:hover:not(.selected) {
+  background: #f1f3f4;
+}
+#editor {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 30px auto;
+  padding: 30px;
+  width: min(100%, 980px);
+  max-width: 980px;
+  min-height: 600px;
+  max-height: calc(100vh - 120px);
+  background: #f9fbfd;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.08);
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+#editor .editor-wrapper {
+  width: 100%;
+  max-width: 940px;
+  margin: 0 auto;
+  text-align: left;
+  box-sizing: border-box;
+  min-height: 100%;
+}
+
+#editor .editor-wrapper table,
+#editor .editor-wrapper div,
+#editor .editor-wrapper p,
+#editor .editor-wrapper section {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#editor .editor-wrapper table {
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+#editor .editor-wrapper img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+#editor .editor-wrapper * {
+  box-sizing: border-box;
+}
+
+#mailingToolbar {
+  display: none;
+}
+
+.merge-field {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 1px;
+  display: inline-block;
+  border: 1px solid #90caf9;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo-wrap">
+      <img id="logo">
+    </div>
+    <div class="title">MAILMERGE XTA</div>
+  </div>
+
+  <!-- MENU -->
+  <div class="menu">
+    <button onclick="navigate('home')">TRANG CHỦ</button>
+   <button onclick="navigate('khoi')">THEO DÕI ĐIỂM</button>
+   <button onclick="navigate('template')">TEMPLATE</button>
+   <button onclick="navigate('mailmerge')">MAILMERGE</button>
+   <button onclick="navigate('guide')">HƯỚNG DẪN</button>
+  </div>
+
+ <div class="content">
+
+  <!-- TRANG CHỦ -->
+  <div id="homePage" class="page">
+    <div class="overlay"></div>
+
+    <div class="bottom-text">
+      <h3>CÔNG CỤ MAILMERGE CHO NHÂN SỰ XTA</h3>
+      <p>Chủ quản: Xưởng tiếng Anh</p>
+      <p>Người phụ trách: Lê Đình Phú</p>
+    </div>
+  </div>
+
+  <!-- TRANG CHỌN KHỐI -->
+  <div id="khoiPage" class="page" style="display:none;"> <div class="overlay">
+  </div>
+  <div class="center-box">
+    <div class="title-center" id="pageTitle">Hãy chọn khối lớp
+    </div>
+
+    <div class="grid-khoi" id="khoiContainer">
+      <div class="btn div1" onclick="showLopTracking(3)">KHỐI 3</div>
+      <div class="btn div2" onclick="showLopTracking(4)">KHỐI 4</div>
+      <div class="btn div3" onclick="showLopTracking(5)">KHỐI 5</div>
+
+      <div class="btn div4" onclick="showLopTracking('cap2')">KHỐI CẤP 2</div>
+      <div></div>
+      <div class="btn div5" onclick="showLopTracking('luan')">LỚP LUẬN</div>
+    </div>
+    <div id="lopContainer" style="margin-top:30px;"></div>
+    </div>
+  </div>
+
+  <!-- TRANG CHỌN TEMPLATE -->
+  <div id="templatePage" class="page" style="display:none;">
+  <div class="container-template">
+    <!-- MENU TRÁI -->
+    <div class="menu-template">
+      <div class="menu-title">Menu</div>
+
+      <div id="searchBtn" class="search-btn" onclick="showSearch()">
+        Tìm kiếm template
+      </div>
+
+      <input id="searchInput"
+             class="search-input"
+             placeholder="Nhập tên file..."
+             oninput="search()"
+             onblur="hideSearch()">
+
+      <button onclick="upload()">Upload template</button>
+      <button>Tạo template</button>
+      <button>Thùng rác</button>
+    </div>
+
+    <!-- FILE -->
+    <div class="content-template">
+      <div class="grid" id="files"></div>
+    </div>
+  </div>
+  </div>
+<!-- MAILMERGE PAGE -->
+<div id="mailmergePage" class="page" style="display:none;">
+  <div class="container-template">
+
+    <!-- MENU TRÁI -->
+    <div class="menu-template">
+      <div class="menu-title">Menu</div>
+
+      <button onclick="showProjects()">Các lớp đang dở</button>
+      <button onclick="showTemplatePicker()">Chọn template</button>
+    </div>
+
+    <!-- CONTENT PHẢI -->
+    <div class="content-template">
+
+  <!-- TOOLBAR -->
+  <div class="mailings-bar" id="mailingToolbar" style="display:none;">
+
+    <button class="toolbar-btn disabled" id="btn-load-class" onclick="openRecipient()">
+    <svg viewBox="0 0 24 24"> <g fill="none">
+    <path d="M16 7.5a4.5 4.5 0 1 1-9 0a4.5 4.5 0 0 1 9 0"/>
+      <path stroke="currentColor" stroke-linecap="square" stroke-width="2" d="M10.75 15H8a5 5 0 0 0-5 5v1h7.8M16 7.5a4.5 4.5 0 1 1-9 0a4.5 4.5 0 0 1 9 0Zm5.25 7.5h-6.5m6.5 3h-6.5m6.5 3h-6.5"/> </g>
+      </svg> <span>Select Recipents</span> </button>
+
+    <button class="toolbar-btn" id="btn-edit-recipients">
+    <svg viewBox="0 0 24 24">
+    <path fill="currentColor" d="M3 6v2h11V6zm0 4v2h11v-2zm17 .1c-.1 0-.3.1-.4.2l-1 1l2.1 2.1l1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8l-6.1 6V20h2.1l6.1-6.1zM3 14v2h7v-2z"/> </svg> <span>Edit recipients list</span>
+    </button>
+
+    <button onclick="toggleFieldDropdown()">
+    <svg viewBox="0 0 16 16">
+    <path fill="currentColor" d="M14 16V5l-1 1v9H1V3h9l1-1H0v14z"/>
+    <path fill="currentColor" d="M16 1.4L14.6 0L7.8 6.8L6 5v5h5L9.2 8.2z"/> </svg> <span>Insert field</span>
+    </button>
+
+    <button class="toolbar-btn" id="btn-preview-results">
+    <svg viewBox="0 0 16 16">
+    <path fill="none" stroke="currentColor" d="M2 8h3m-3 4.5h4m-4-9h12m-2.479 7.021l2.066 2.066m-1.18-4.131a2.951 2.951 0 1 1-5.902 0a2.951 2.951 0 0 1 5.902 0Z"/> </svg> <span>Preview results</span> </button>
+
+    <button onclick="prevRecord()">←</button>
+
+    <button onclick="nextRecord()">→</button>
+
+    <button class="toolbar-btn" id="btn-merge" onclick="finishMerge()">
+    <svg viewBox="0 0 1024 1024">
+    <path fill="currentColor" d="M688 312v-48c0-4.4-3.6-8-8-8H296c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8m-392 88c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zm376 116c-119.3 0-216 96.7-216 216s96.7 216 216 216s216-96.7 216-216s-96.7-216-216-216m107.5 323.5C750.8 868.2 712.6 884 672 884s-78.8-15.8-107.5-44.5S520 772.6 520 732s15.8-78.8 44.5-107.5S631.4 580 672 580s78.8 15.8 107.5 44.5S824 691.4 824 732s-15.8 78.8-44.5 107.5M761 656h-44.3c-2.6 0-5 1.2-6.5 3.3l-63.5 87.8l-23.1-31.9a7.92 7.92 0 0 0-6.5-3.3H573c-6.5 0-10.3 7.4-6.5 12.7l73.8 102.1c3.2 4.4 9.7 4.4 12.9 0l114.2-158c3.9-5.3.1-12.7-6.4-12.7M440 852H208V148h560v344c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V108c0-17.7-14.3-32-32-32H168c-17.7 0-32 14.3-32 32v784c0 17.7 14.3 32 32 32h272c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8"/> </svg>
+    <span>Finish & Merge</span> </button>
+  </div>
+  
+  <div id="recipientDropdown" style="
+  display:none;
+  position:absolute;
+  background:white;
+  border:1px solid #ccc;
+  border-radius:10px;
+  margin-top:5px;
+  z-index:999;
+  width:250px;
+  max-height:300px;
+  overflow-y:auto;
+  "></div>
+
+  <!-- DROPDOWN FIELD -->
+  <div id="fieldDropdown" style="display:none;"></div>
+  <div id="mmContainer" class="grid"></div>
+  <!-- EDITOR -->
+  <div id="editor" style="display:none; background:white; border-radius:10px; margin-top:15px;"></div>
+
+</div>
+
+   </div>
+   </div>
+</div>
+<script>
+let allFilesCache = [];
+let currentView = "home";
+let quill;
+// LOAD ẢNH
+document.addEventListener("DOMContentLoaded", function(){
+  google.script.run.withSuccessHandler(function(data){
+    document.getElementById("logo").src = data.logo;
+    document.querySelector(".content").style.backgroundImage = `url(${data.bg})`;
+  }).getImages();
+
+  if(PAGE === "home") goHome();
+  if(PAGE === "khoi") showKhoi();
+  if(PAGE === "template") showTemplate();
+  if(PAGE === "mailmerge") thuchienMM();
+
+   const editor = document.getElementById("editor");
+
+   editor.addEventListener('input', function(){
+   const wrapper = editor.querySelector('.editor-wrapper');
+   mmState.content = wrapper ? wrapper.innerHTML : editor.innerHTML;
+  });
+  
+});
+
+// MENU
+function setActiveMenu(index){
+  document.querySelectorAll(".menu button").forEach((btn,i)=>{
+    btn.classList.toggle("active", i === index);
+  });
+}
+
+// TRANG CHỦ
+function goHome(){
+  currentView = "home";
+  setActiveMenu(0);
+
+  document.getElementById("homePage").style.display = "block";
+  document.getElementById("khoiPage").style.display = "none";
+  document.getElementById("templatePage").style.display = "none";
+
+  document.querySelector(".bottom-text").style.display = "block";
+
+  // 🔥 restore lại layout
+  document.querySelector(".content").classList.remove("template-mode");
+  document.querySelector(".container").classList.remove("template-mode");
+  document.querySelector(".header").classList.remove("hide");
+}
+
+// CHỌN KHỐI
+function showKhoi(){
+  resetLayout();
+  currentView = "khoi";
+  setActiveMenu(1);
+
+  // Hiện đúng page
+  document.getElementById("homePage").style.display = "none";
+  document.getElementById("khoiPage").style.display = "block";
+  document.getElementById("templatePage").style.display = "none";
+  document.querySelector(".bottom-text").style.display = "none";
+
+  document.querySelectorAll(".overlay").forEach(e => e.style.display = "block");
+  
+  document.getElementById("lopContainer").innerHTML = "";
+  document.getElementById("khoiContainer").style.display = "grid";
+  document.getElementById("pageTitle").innerText = "Hãy chọn khối lớp";
+}
+
+// HIỆN LỚP
+function showLopTracking(khoi){
+  currentView = "lop";
+
+  // cập nhật tiêu đề
+  document.getElementById("pageTitle").innerText = "Hãy chọn lớp";
+
+  // ẩn khối
+  document.getElementById("khoiContainer").style.display = "none";
+
+  // data lớp
+  const data = {
+    3: ["Lớp 3.1","Lớp 3.2","Lớp 3.3"],
+    4: ["Lớp 4.1","Lớp 4B1","Lớp 4B2","Lớp 4C1","Lớp 4C2","Lớp 4C3","Lớp 4C4","Lớp 4C5","Lớp 4C6"],
+    5: ["Lớp 5.1","Lớp 5.2A","Lớp 5.2B","Lớp 5.3","Lớp 5.4","Lớp 5.4+"],
+    cap2: ["Lớp B1+ Cô Hiền T2","Lớp B1+ Cô Nguyệt T2","Lớp B1+ T6","Lớp B1+ CN","Lớp B2+ T7","Lớp B2+ CN"],
+    luan: ["Lớp luận T3","Lớp luận T7"]
+  };
+
+  const classes = data[khoi] || [];
+
+  // chọn layout grid
+  const gridClass = classes.length >= 3 ? 'grid-3' : 'grid-2';
+
+  // build UI
+  let html = `
+    <div style="background:white; padding:15px; border-radius:12px;">
+      
+      <!-- NÚT BACK -->
+      <div 
+        style="font-weight:bold; margin-bottom:15px; cursor:pointer;"
+        onclick="showKhoi()"
+      >
+        ← Quay lại chọn khối
+      </div>
+
+      <!-- DANH SÁCH LỚP -->
+      <div class="grid ${gridClass}">
+  `;
+
+  classes.forEach(c => {
+    html += `
+      <div class="btn" onclick="openSheet('${c}')">
+        ${c}
+      </div>
+    `;
+  });
+
+  html += `
+      </div>
+    </div>
+    
+  `;
+
+  // render
+  document.getElementById("lopContainer").innerHTML = html;
+}
+
+// QUAY LẠI
+function goBack(){
+  if(currentView === "lop"){
+    currentView = "khoi";
+     document.getElementById("pageTitle").innerText = "Hãy chọn khối lớp";
+     document.getElementById("khoiContainer").style.display = "grid";
+     document.getElementById("lopContainer").innerHTML = "";
+  } else {
+    goHome();
+  }
+}
+function showTemplate(){
+  setActiveMenu(2);
+
+  document.getElementById("homePage").style.display = "none";
+  document.getElementById("khoiPage").style.display = "none";
+  document.getElementById("templatePage").style.display = "block";
+
+  document.querySelector(".bottom-text").style.display = "none";
+
+  // ✅ bật mode template
+  document.querySelector(".content").classList.add("template-mode");
+  document.querySelector(".container").classList.add("template-mode");
+
+  // ✅ ẩn overlay (KHÔNG remove)
+  document.querySelectorAll(".overlay").forEach(e => e.style.display = "none");
+
+  // ✅ ẩn header
+  document.querySelector(".header").classList.add("hide");
+
+  loadFiles();
+}
+// MỞ SHEET
+function openSheet(className){
+  const sheetMap = {
+    "Lớp 3.1": "https://docs.google.com/spreadsheets/d/1upGgeGnZA5tbvRVctcj-gkTJ9xy6aDAelXHfAsWRryw",
+    "Lớp 3.2": "https://docs.google.com/spreadsheets/d/1V6gEHyP34GP7cZ0Xulh7r5mHXTbJQ05-",
+    "Lớp 3.3": "https://docs.google.com/spreadsheets/d/1Aet9zjpheklBK2Yvjz5DP59DKpBMLl1Z",
+
+    "Lớp 4.1": "https://docs.google.com/spreadsheets/d/16d-hJgdOhZqzmmShRr3WZBZ2sq5MBKFBvVcg1nXSsvs",
+    "Lớp 4B1": "https://docs.google.com/spreadsheets/d/1qg99_TVR4vPxVjYlb-p5VljKRXHFMkwX",
+    "Lớp 4B2": "https://docs.google.com/spreadsheets/d/1B-XFZoRGoLpk8OT-hDFVT07mJfjh3ZSzMV2C7pxoXXk",
+    "Lớp 4C1": "https://docs.google.com/spreadsheets/d/1HVLWSWFSWeGox4shM5UDJCqslC7rtgGZ",
+    "Lớp 4C2": "https://docs.google.com/spreadsheets/d/1w6UdGutjW25LgShQ4NS6KXTWjmpibWpC",
+    "Lớp 4C3": "https://docs.google.com/spreadsheets/d/1Bl6-0TB9DBxSumo9TzIsRicYXhnK154C",
+    "Lớp 4C4": "https://docs.google.com/spreadsheets/d/1MkIqlHW5zXlMxd5sxiI5stqjeBgc8hlbDLD86ILZrxU",
+    "Lớp 4C5": "https://docs.google.com/spreadsheets/d/1Ukel8YKFOzfgW8tluhQu6BLeH08g-mAJSDO-yu-mNkY",
+
+    "Lớp 5.1": "https://docs.google.com/spreadsheets/d/1myl5Xj-22ky7VIiNdjtwGFczBrKumeVFd_DWKSUcOh8",
+    "Lớp 5.2A": "https://docs.google.com/spreadsheets/d/1SQpmakpdB26iUHB_D5knlBDE87GFdYGFNKSP_gzMWCc",
+    "Lớp 5.2B": "https://docs.google.com/spreadsheets/d/1nIkijCXx0_VdQg-TvlkL2X33HbCGgzRJ",
+    "Lớp 5.3": "https://docs.google.com/spreadsheets/d/15gIZ7gDa-_Fi1AbreZtX46pI6bIIOlXl",
+    "Lớp 5.4": "https://docs.google.com/spreadsheets/d/1JOMsiH9vy3fgxuwWFu_FuBhG4bL6GTwxBvv_uwJB48U",
+    "Lớp 5.4+": "https://docs.google.com/spreadsheets/d/1TdCg1Tbi5y5mx2_urHvrofVH-CnXYGntnOghtqAkKGY",
+
+    "Lớp B1+ Cô Hiền T2": "https://docs.google.com/spreadsheets/d/1O3iN4mFM5ycE4vsljl13re0vtuwoWqD4",
+    "Lớp B1+ Cô Nguyệt T2": "https://docs.google.com/spreadsheets/d/1KvVE5WjHG10OHt9WhiWe22RqibEuLTeY",
+    "Lớp B1+ T6": "https://docs.google.com/spreadsheets/d/1cc_6Bqw2HLD1193JAf_xKgb-snzcLe1e",
+    "Lớp B1+ CN": "https://docs.google.com/spreadsheets/d/1ZLh-cid1ufm0LZSPJ9n2rUrSqSli5TL4",
+    "Lớp B2+ T7": "https://docs.google.com/spreadsheets/d/1O5dWgmgqAS2hzplLyVi_sYFgc6flqSqmUxVi4uxX81c",
+    "Lớp B2+ CN": "https://docs.google.com/spreadsheets/d/17SjgXBE1NRusXZkTk0nxBTLb2UIQttwI-Xs2NZKOdc4",
+
+    "Lớp luận T3": "https://docs.google.com/spreadsheets/d/1zefF9EI0HJL_sEJoTZoY-E3-IH1llqLMpTHVs2JVeEE",
+    "Lớp luận T7": "https://docs.google.com/spreadsheets/d/1IJ4WJwchC9oi00VqP6r5e1OJDIE-rS_96CRjoGMQG1E"
+  };
+
+  const url = sheetMap[className];
+
+  if (!url) {
+    alert("Không tìm thấy sheet!");
+    return;
+  }
+
+  window.open(url, "_blank");
+}
+
+function showSearch() {
+  const btn = document.getElementById("searchBtn");
+  const input = document.getElementById("searchInput");
+
+  btn.style.display = "none";
+  input.style.display = "block";
+
+  input.focus();
+}
+
+function hideSearch() {
+  const btn = document.getElementById("searchBtn");
+  const input = document.getElementById("searchInput");
+  if(input.value.trim() === ""){
+  btn.style.display = "block";
+  input.style.display = "none";}
+}
+
+// UPLOAD
+function upload() {
+  const input = document.createElement("input");
+  input.type = "file";
+
+  input.onchange = () => {
+    const file = input.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    const box = document.getElementById("uploadBox");
+    const text = document.getElementById("uploadText");
+    const bar = document.getElementById("progressBar");
+
+    box.style.display = "block";
+    text.innerText = "Uploading...";
+    bar.style.width = "10%";
+
+    reader.onload = (e) => {
+      const base64 = e.target.result.split(",")[1];
+
+      text.innerHTML = "Uploading... <br><b>" + file.name + "</b>";
+
+      // 🔥 PROGRESS MƯỢT (tăng đều)
+      let percent = 5;
+      const fake = setInterval(() => {
+        percent += 3;
+
+        if (percent >= 85) {
+          percent = 85;
+          clearInterval(fake);
+        }
+
+        bar.style.width = percent + "%";
+      }, 120);
+
+      // 🔥 GỬI SERVER
+      google.script.run
+        .withSuccessHandler((f) => {
+          clearInterval(fake);
+
+          // 100%
+          bar.style.width = "100%";
+          text.innerText = "Hoàn tất ✔";
+
+          // 🔥 HIỂN THỊ FILE NGAY
+          allFilesCache.unshift(f);render(allFilesCache);
+
+          // 🔥 delay nhẹ cho mượt
+          setTimeout(() => {
+            box.style.display = "none";
+            bar.style.width = "0%";
+          }, 600);
+        })
+        .withFailureHandler((err) => {
+          clearInterval(fake);
+
+          text.innerText = "Upload lỗi!";
+        })
+        .uploadFile(base64, file.name, file.type);
+    };
+
+    // 🔥 đọc file sau khi đã hiện UI
+    reader.readAsDataURL(file);
+  };
+
+  input.click();
+}
+
+// LOAD
+function loadFiles() {
+  google.script.run.withSuccessHandler(function(files){
+    allFilesCache = files; // 🔥 cache lại
+    render(files);
+  }).getFiles();
+}
+
+// SEARCH
+function search() {
+  const q = document.getElementById("searchInput").value.toLowerCase();
+
+  // 🔥 KHÔNG gọi server nữa
+  const filtered = allFilesCache.filter(f =>
+    f.name.toLowerCase().includes(q)
+  );
+
+  render(filtered);
+}
+
+// RENDER
+function render(files) {
+  const box = document.getElementById("files");
+
+  let html = "";
+
+  files.forEach(f => {
+    html += `
+    <div class="file"
+      onclick="handleClick(event,'${f.id}','${f.url}')">
+
+      <!-- HEADER -->
+      <div class="file-header">
+        <div class="file-name">${f.name}</div>
+
+        <div class="file-menu" onclick="toggleMenu(event, '${f.id}')">
+          ⋮
+        </div>
+
+        <div class="dropdown" id="menu-${f.id}">
+          <div onclick="duplicateFile('${f.id}')">Tạo bản sao</div>
+          <div onclick="renameFile('${f.id}', '${f.name}')">Đổi tên</div>
+          <div onclick="deleteFile('${f.id}')">Xóa</div>
+        </div>
+      </div>
+
+      <!-- PREVIEW -->
+      <div class="preview-box">
+        <img class="preview"
+        src="https://drive.google.com/thumbnail?id=${f.id}&sz=w1000">
+      </div>
+
+    </div>
+    `;
+  });
+
+  box.innerHTML = html;
+}
+
+// ADD FILE
+function addFile(f) {
+  document.getElementById("files").appendChild(createFile(f));
+}
+
+// FILE UI
+function createFile(f) {
+  const preview = `
+    <div class="preview-box">
+      <img class="preview"
+      src="https://drive.google.com/thumbnail?id=${f.id}&sz=w1000">
+    </div>
+  `;
+
+  const div = document.createElement("div");
+  div.className = "file";
+
+  div.innerHTML = `
+    ${preview}
+    <div class="file-name">${f.name}</div>
+  `;
+
+  div.onclick = () => window.open(f.url);
+
+  return div;
+}
+let selectedFileId = null;
+
+function selectFile(e, id) {
+  if (e.target.closest(".file-menu") || e.target.closest(".dropdown")) return;
+
+  document.querySelectorAll(".file").forEach(f => {
+    f.classList.remove("selected");
+  });
+
+  e.currentTarget.classList.add("selected");
+  selectedFileId = id;
+
+  e.stopPropagation();
+}
+
+let clickTimer = null;
+
+function handleClick(e, id, url) {
+  if (e.target.closest(".file-menu") || e.target.closest(".dropdown")) return;
+
+   if (e.detail === 2) {
+    openFile(url);
+    return;
+  }
+  selectFile(e, id);
+}
+
+function renameFile(id, oldName){
+  const newName = prompt("Nhập tên mới:", oldName);
+  if(!newName || newName === oldName) return;
+
+  google.script.run.withSuccessHandler(() => {
+    loadFiles();
+  }).renameFile(id, newName);
+}
+
+function thuchienMM(){
+  resetLayout();
+  setActiveMenu(3);
+
+  document.getElementById("homePage").style.display = "none";
+  document.getElementById("khoiPage").style.display = "none";
+  document.getElementById("templatePage").style.display = "none";
+  document.getElementById("mailmergePage").style.display = "block";
+
+  document.querySelector(".bottom-text").style.display = "none";
+
+  // giống template mode
+  document.querySelector(".content").classList.add("template-mode");
+  document.querySelector(".container").classList.add("template-mode");
+  document.querySelector(".header").classList.add("hide");
+
+  resetMailmergeUI();
+
+  showProjects();
+
+  document.getElementById("editor").style.display = "none";
+  document.getElementById("mailingToolbar").style.display = "none";
+  document.getElementById("mmContainer").style.display = "grid";
+
+  mmState = {
+  template: null,
+  sheetId: null,
+  sheetName: null,
+  headers: [],
+  data: [],
+  index: 0,
+  content: "",
+  rawTemplate: ""
+  };
+}
+
+function showProjects(){
+  google.script.run.withSuccessHandler(renderProjects)
+    .getMailmergeProjects();
+}
+
+function selectTemplate(f){
+  mmState.template = {
+    id: f.id,
+    name: f.name,
+    url: f.url
+  };
+}
+
+function centerMailmergeEditorContent() {
+  const editor = document.getElementById("editor");
+  const existing = editor.querySelector(".editor-wrapper");
+
+  if (existing) {
+    editor.innerHTML = existing.innerHTML;
+  }
+
+  const wrapper = document.createElement("div");
+  wrapper.className = "editor-wrapper";
+  wrapper.innerHTML = editor.innerHTML;
+
+  editor.innerHTML = "";
+  editor.appendChild(wrapper);
+}
+
+function openRecipient(){
+  const box = document.getElementById("recipientDropdown");
+
+  if(box.style.display === "block"){
+    box.style.display = "none";
+    return;
+  }
+
+  box.style.display = "block";
+  renderKhoiList();
+}
+
+function renderKhoiList(){
+  const box = document.getElementById("recipientDropdown");
+
+  const khoiList = [
+    {name: "KHỐI 3", value: 3},
+    {name: "KHỐI 4", value: 4},
+    {name: "KHỐI 5", value: 5},
+    {name: "KHỐI CẤP 2", value: "cap2"},
+    {name: "LỚP LUẬN", value: "luan"}
+  ];
+
+  box.innerHTML = "";
+
+  khoiList.forEach(k => {
+    const div = document.createElement("div");
+    div.innerText = k.name;
+    div.style.padding = "10px";
+    div.style.cursor = "pointer";
+
+    div.onclick = () => renderLopList(k.value);
+
+    box.appendChild(div);
+  });
+}
+
+function renderLopList(khoi){
+  const box = document.getElementById("recipientDropdown");
+
+  const data = {
+    3: ["Lớp 3.1","Lớp 3.2","Lớp 3.3"],
+    4: ["Lớp 4.1","Lớp 4B1","Lớp 4B2","Lớp 4C1","Lớp 4C2","Lớp 4C3","Lớp 4C4","Lớp 4C5","Lớp 4C6"],
+    5: ["Lớp 5.1","Lớp 5.2A","Lớp 5.2B","Lớp 5.3","Lớp 5.4","Lớp 5.4+"],
+    cap2: ["Lớp B1+ Cô Hiền T2","Lớp B1+ Cô Nguyệt T2","Lớp B1+ T6","Lớp B1+ CN","Lớp B2+ T7","Lớp B2+ CN"],
+    luan: ["Lớp luận T3","Lớp luận T7"]
+  };
+  
+   box.innerHTML = "";
+
+  const back = document.createElement("div");
+  back.innerText = "← Quay lại chọn khối";
+  back.style.padding = "10px";
+  back.style.fontWeight = "bold";
+  back.style.cursor = "pointer";
+  back.style.borderBottom = "1px solid #ddd";
+  back.onclick = renderKhoiList;
+  box.appendChild(back);
+
+  data[khoi].forEach(c => {
+    const div = document.createElement("div");
+    div.innerText = c;
+    div.style.padding = "10px";
+    div.style.cursor = "pointer";
+
+    div.onclick = () => selectClassMM(c);
+
+    box.appendChild(div);
+  });
+}
+
+function renderFieldList() {
+  const box = document.getElementById("fieldDropdown");
+  box.innerHTML = "";
+
+  if (!mmState.headers || mmState.headers.length === 0) {
+    box.innerHTML = "<div style='padding:10px'>Chưa có dữ liệu</div>";
+    return;
+  }
+
+  mmState.headers.forEach(field => {
+    const div = document.createElement("div");
+    div.innerText = field;
+
+    div.onclick = () => {
+      insertField(field);
+    };
+
+    box.appendChild(div);
+  });
+}
+
+function loadHeaders(){
+  google.script.run.withSuccessHandler(function(headers){
+    mmState.headers = headers;
+    loadData();
+  }).getHeaders(mmState.sheetId, mmState.sheetName);
+}
+
+function loadData(){
+  google.script.run.withSuccessHandler(function(data){
+    mmState.data = data;
+    mmState.index = 0;
+
+    preview();
+  }).getData(mmState.sheetId, mmState.sheetName);
+}
+
+function toggleFieldDropdown(){
+  saveMergeFieldSelection();
+
+  const box = document.getElementById("fieldDropdown");
+
+  if(box.style.display === "none" || box.style.display === ""){
+    renderFieldList();
+    box.style.display = "block";
+  } else {
+    box.style.display = "none";
+  }
+}
+
+let savedMergeFieldRange = null;
+
+function saveMergeFieldSelection() {
+  const sel = window.getSelection();
+  if (!sel.rangeCount) return;
+
+  const range = sel.getRangeAt(0);
+  const editor = document.getElementById("editor");
+  const wrapper = editor?.querySelector(".editor-wrapper");
+  if (!wrapper) return;
+
+  if (!wrapper.contains(range.startContainer) || !wrapper.contains(range.endContainer)) return;
+  savedMergeFieldRange = range.cloneRange();
+}
+
+function restoreMergeFieldSelection() {
+  const sel = window.getSelection();
+  sel.removeAllRanges();
+  if (!savedMergeFieldRange) return;
+  sel.addRange(savedMergeFieldRange);
+}
+
+function selectClassMM(className){
+  document.getElementById("recipientDropdown").style.display = "none";
+
+  // load sheet
+  google.script.run.withSuccessHandler(function(url){
+
+    const id = url.split("/d/")[1].split("/")[0];
+    mmState.sheetId = id;
+
+    google.script.run.withSuccessHandler(function(names){
+     openSheetModal(names);
+
+    }).getSheetNames(id);
+
+  }).getSheetUrl(className);
+}
+
+function preview() {
+  if (!mmState.data.length) return;
+
+  const row = mmState.data[mmState.index];
+  let content = mmState.rawTemplate;
+
+  Object.keys(row).forEach(k => {
+    const placeholder = `{{${k}}}`;
+    const value = row[k] || "";
+    content = content.replaceAll(placeholder, value);
+  });
+
+  const html = extractBodyHtml(content);
+  renderEditorHtml(html);
+}
+
+function extractBodyHtml(html) {
+  const temp = document.createElement('div');
+  temp.innerHTML = html;
+
+  const body = temp.querySelector('body');
+  if (body) return body.innerHTML;
+
+  const htmlEl = temp.querySelector('html');
+  if (htmlEl) return htmlEl.innerHTML;
+
+  return html;
+}
+
+function normalizeTemplateHtml(html) {
+  const temp = document.createElement('div');
+  temp.innerHTML = html;
+
+  const body = temp.querySelector('body');
+  return body ? body.innerHTML : temp.innerHTML;
+}
+
+function renderEditorHtml(html) {
+  const editor = document.getElementById("editor");
+  editor.innerHTML = "";
+
+  const wrapper = document.createElement("div");
+  wrapper.className = "editor-wrapper";
+  wrapper.contentEditable = true;
+  wrapper.innerHTML = normalizeTemplateHtml(html);
+
+  editor.appendChild(wrapper);
+  editor.style.display = "block";
+
+  wrapper.addEventListener("mouseup",  saveMergeFieldSelection);
+  wrapper.addEventListener("keyup", saveMergeFieldSelection);
+  wrapper.addEventListener("focusin", saveMergeFieldSelection);
+
+}
+
+function nextRecord(){
+  if(mmState.index < mmState.data.length - 1){
+    mmState.index++;
+    preview();
+  }
+}
+
+function prevRecord(){
+  if(mmState.index > 0){
+    mmState.index--;
+    preview();
+  }
+}
+
+function finishMerge(){
+  let HTML = mmState.rawTemplate;
+  
+  // Ensure all merge fields are in {{field}} format for merge
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = HTML;
+  
+  tempDiv.querySelectorAll('.merge-field').forEach(span => {
+    const field = span.getAttribute('data-field');
+    if(field) {
+      const placeholder = document.createTextNode(`{{${field}}}`);
+      span.parentNode.replaceChild(placeholder, span);
+    }
+  });
+  
+  HTML = tempDiv.innerHTML;
+  
+  google.script.run
+    .withSuccessHandler(function(res){
+      alert("Merge hoàn tất! Đã tạo " + res.length + " file.");
+      // Refresh projects
+      showProjects();
+    })
+    .mergeDocsFromHtml(
+      HTML,
+      mmState.sheetId,
+      mmState.sheetName
+    );
+}
+
+function renderProjects(files){
+  const box = document.getElementById("mmContainer");
+  box.innerHTML = "";
+    if(files.length === 0){
+    box.innerHTML = "<p>Chưa có project nào</p>";
+    return;
+  }
+
+  files.forEach(f => {
+    box.appendChild(createFileUI(f));
+  });
+}
+
+function createFileUI(f){
+  const div = document.createElement("div");
+  div.className = "file";
+
+  div.innerHTML = `
+    <div class="preview-box">
+      <img class="preview"
+      src="https://drive.google.com/thumbnail?id=${f.id}&sz=w1000">
+    </div>
+    <div class="file-name">${f.name}</div>
+  `;
+  div.onclick = () => window.open(f.url, "_blank");
+  return div;
+}
+function showTemplatePicker(){
+  google.script.run.withSuccessHandler(renderTemplates).getFiles();
+}
+
+function renderTemplates(files){
+  const box = document.getElementById("mmContainer");
+  box.innerHTML = "";
+
+  files.forEach(f => {
+    const div = createFileUI(f);
+
+    div.onclick = () => confirmTemplate(f);
+
+    box.appendChild(div);
+  });
+}
+function openTemplatePicker(){
+  google.script.run.withSuccessHandler(showTemplatePopup).getFiles();
+}
+
+function showTemplatePopup(files){
+  let list = files.map(f => f.name).join("\n");
+
+  const name = prompt("Chọn template:\n" + list);
+
+  const file = files.find(f => f.name === name);
+
+  if(!file) return alert("Không tìm thấy file!");
+
+  confirmTemplate(file);
+}
+
+function confirmTemplate(file){
+  if(isCreatingProject) return;
+  isCreatingProject = true;
+
+  const ok = confirm(`Chọn "${file.name}" làm template?`);
+  if(!ok){
+    isCreatingProject = false;
+    return;
+  }
+
+  google.script.run
+    .withSuccessHandler(function(newFile){
+
+      google.script.run
+        .withSuccessHandler(function(html){
+
+          renderEditorHtml(html);
+
+          const editor = document.getElementById("editor");
+          editor.removeEventListener('click', handleEditorClick);
+          editor.addEventListener('click', handleEditorClick);
+
+          document.getElementById("mailingToolbar").style.display = "flex";
+          document.getElementById("mmContainer").style.display = "none";
+
+          mmState.content = html;
+          mmState.rawTemplate = html;
+
+          isCreatingProject = false;
+
+        })
+        .getDocContent(newFile.id);
+
+    })
+    .createMailmergeProject(file.id, file.name);
+}
+
+// Click-to-insert field handler
+function handleEditorClick(e) {
+  e.stopPropagation();
+  
+}
+
+function insertField(field){
+  const editor = document.getElementById("editor");
+  const wrapper = editor?.querySelector(".editor-wrapper");
+  if (!wrapper) return;
+
+  wrapper.focus();
+  restoreMergeFieldSelection();
+
+  const selection = window.getSelection();
+  if (selection.rangeCount === 0) {
+    const range = document.createRange();
+    range.selectNodeContents(wrapper);
+    range.collapse(false);
+    selection.addRange(range);
+  }
+
+  const range = selection.getRangeAt(0);
+  const span = document.createElement('span');
+  span.className = 'merge-field';
+  span.textContent = `{{${field}}}`;
+  span.setAttribute('data-field', field);
+
+  range.deleteContents();
+  range.insertNode(span);
+
+  range.setStartAfter(span);
+  range.setEndAfter(span);
+  selection.removeAllRanges();
+  selection.addRange(range);
+
+  savedMergeFieldRange = range.cloneRange();
+  mmState.content = editor.innerHTML;
+}
+
+function openSheetModal(names){
+  const modal = document.getElementById("sheetModal");
+  const list = document.getElementById("sheetList");
+
+  list.innerHTML = "";
+
+  names.forEach(name => {
+    const div = document.createElement("div");
+    div.innerText = name;
+
+    div.onclick = () => {
+      mmState.sheetName = name;
+      closeSheetModal();
+      loadHeaders();
+    };
+
+    list.appendChild(div);
+  });
+
+  modal.style.display = "flex";
+}
+
+function closeSheetModal(){
+  document.getElementById("sheetModal").style.display = "none";
+}
+function openFile(url){
+  window.open(url, "_blank");
+}
+
+function toggleMenu(e, id){
+  e.stopPropagation();
+
+  document.querySelectorAll(".dropdown").forEach(m => m.style.display = "none");
+
+  const menu = document.getElementById("menu-" + id);
+  menu.style.display = "block";
+}
+
+document.addEventListener("click", () => {
+  document.querySelectorAll(".dropdown").forEach(m => m.style.display = "none");
+});
+
+let mmState = {
+  template: null,
+  sheetId: null,
+  sheetName: null,
+  headers: [],
+  data: [],
+  index: 0,
+  content: "",
+  rawTemplate: ""
+};
+
+function resetMailmergeUI(){
+  document.getElementById("editor").style.display = "none";
+  document.getElementById("mailingToolbar").style.display = "none";
+  document.getElementById("mmContainer").style.display = "grid";
+}
+
+function navigate(page){
+  resetLayout();
+  resetMailmergeUI();
+  if(page !== "mailmerge"){resetMailmergeUI();}
+
+  if(page === "home") goHome();
+  else if(page === "khoi") showKhoi();
+  else if(page === "template") showTemplate();
+  else if(page === "mailmerge") thuchienMM();
+}
+function resetLayout(){
+  document.querySelectorAll(".page").forEach(p => p.style.display = "none");
+
+  document.querySelector(".content").classList.remove("template-mode");
+  document.querySelector(".container").classList.remove("template-mode");
+
+  document.querySelector(".header").classList.remove("hide");
+
+  document.querySelectorAll(".overlay").forEach(e => e.style.display = "block");
+}
+
+const PAGE = "<?= page ?>";
+
+function deleteFile(id){
+  if(!confirm("Xóa file này?")) return;
+
+  google.script.run.withSuccessHandler(() => {
+    loadFiles();
+  }).deleteFile(id);
+}
+
+function duplicateFile(id){
+  google.script.run.withSuccessHandler(() => {
+    loadFiles();
+  }).duplicateFile(id);
+}
+document.addEventListener("click", function(e){
+  const isFile = e.target.closest(".file");
+
+  if(!isFile){
+    document.querySelectorAll(".file").forEach(f => {
+      f.classList.remove("selected");
+    });
+
+    selectedFileId = null;
+  }
+});
+document.addEventListener("click", function(e){
+  const box = document.getElementById("fieldDropdown");
+
+  if (!e.target.closest("#fieldDropdown") &&
+      !e.target.closest("[onclick*='toggleFieldDropdown']")) {
+    box.style.display = "none";
+  }
+});
+</script>
+<div id="sheetModal" style="
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+  z-index:9999;
+  justify-content:center;
+  align-items:center;
+">
+  <div style="
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    width:350px;
+    max-height:400px;
+    overflow:auto;
+  ">
+    <div style="font-weight:bold; margin-bottom:10px;">
+      Chọn Sheet dữ liệu
+    </div>
+
+    <div id="sheetList"></div>
+
+    <div style="text-align:right; margin-top:10px;">
+      <button onclick="closeSheetModal()">Hủy</button>
+    </div>
+  </div>
+</div>
+
+<div id="uploadBox">
+  <div id="uploadText">Uploading</div>
+  <div style="background:#ddd; height:6px; border-radius:4px;">
+    <div id="progressBar"></div>
+  </div>
+</div>
+</body>
+</html>
