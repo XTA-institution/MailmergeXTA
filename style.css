@@ -5,9 +5,11 @@
     }
 
     .container {
-      width: 90%;
+     width: 88%;
       margin: 30px auto;
-      background: #ffffff;
+      background-image: url('img/background.jpg');
+      background-size: cover;
+      background-position: center;
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
